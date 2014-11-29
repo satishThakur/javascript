@@ -42,5 +42,30 @@
     console.log(typeof cp,cp);
 
 
+    //defining property for new properties...
+
+    var parent = {a : 3, b : 5};
+
+    var child = Object.create(parent,
+        {
+            x : {
+                value : 23,
+                enumerable : false
+            },
+            y : {
+                value : function(){
+                    console.log('yyy');
+                },
+                enumerable : true
+
+            }
+        }
+    );
+
+    console.log('Printing child',child);
+    console.log(Object.getOwnPropertyNames(child));
+
+
+
 
 })();

@@ -12,6 +12,18 @@
     };
 
 
+    var extend1 = function(o,p){
+        var props = Object.getOwnPropertyNames(p);
+        props.forEach(function(prop){
+            if(!(prop in o)){
+                var propDesc = Object.getOwnPropertyDescriptor(p, prop);
+                Object.defineProperty(o, prop, propDesc);
+            }
+        });
+        return o;
+    };
+
+
     //merge : only copy those properties which o does not have..
 
     var merge = function(o, p){
@@ -87,6 +99,25 @@
     //this will be undefined why?
     console.log(a.toString);
     console.log(Object.prototype.propertyIsEnumerable('toString'));
+
+    //what happens if p has getter and setters?
+
+    var counter = {
+        $c : 0,
+        get x(){
+         return this.$c++;
+        },
+
+        set x(value){
+            this.$c = value;
+        }
+    };
+
+    console.log('counter originally', counter);
+    var counterEx = extend1({},counter);
+    console.log('#####CounterEx#######');
+    console.log('counter', counter);
+    console.log('counterEx', counterEx);
 
 
     /**
