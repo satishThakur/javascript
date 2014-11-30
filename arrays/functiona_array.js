@@ -68,4 +68,62 @@
     });
     console.log(isFive);
 
+
+    //reduce and reduceRight
+
+    //simplest form
+
+    var sum = [1,2,3,4,5].reduce(function(acc, num){
+        return acc + num;
+    },0);
+
+    var product = [1,2,3,4,5].reduce(function(product, num){
+        return product * num;
+    },1);
+
+    console.log('sum of 1-5', sum, 'product 1-5',product);
+
+    var sumSeries = function(a, initial, f){
+        return a.reduce(function(acc, num){
+            return acc + f(num);
+        }, initial);
+    };
+
+    var s = sumSeries([1,2,3,4,5,6,7], 0, function(a){
+        return a;
+    });
+    console.log(s);
+
+    var somSq = sumSeries([1,2,3,4,5],0, function(a){
+        return a * a;
+    });
+
+
+    // below one are not really functional but are ECMAScript 5 only..
+
+    //indexOf and lastIndexOf
+
+    var findAll = function(a, elem){
+        var allPos = [];
+        var len = a.length, pos = 0;
+        while(pos < len){
+            var index = a.indexOf(elem, pos);
+            if(index === -1){
+                break;
+            }else{
+                allPos.push(index);
+                pos = index + 1;
+            }
+        }
+        return allPos;
+    }
+
+    console.log(findAll([1,2,4,1,5,7,8,1],1));
+
+    //check if the object is an array...
+
+    //ECMAScript 5...
+
+    console.log(Array.isArray([]));
+
 })();
