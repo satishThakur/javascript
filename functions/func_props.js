@@ -13,4 +13,12 @@
     f(1,2,3,4,5);
     f();
 
+
+    //prototype property
+
+    console.log(f === f.prototype.constructor);
+
+    console.log(Object.getOwnPropertyNames(f.prototype));
+    console.log(Object.getOwnPropertyDescriptor(f.prototype,'constructor'));
+
 })();
