@@ -1,4 +1,4 @@
-//null is actually a keyword and not gloabal variable!!
+//null is actually a keyword and not global variable!!
 console.log(typeof null);
 
 if(null){
@@ -17,7 +17,7 @@ if(null == false){
 if(null == 0){
 	console.log('magic!!! null is 0');
 }else{
-	console.log('well there is no magic only trics!!');
+	console.log('well there is no magic only tricks !!');
 }
 
 if(isNaN(null)){

@@ -73,6 +73,11 @@ console.log('typeof date + 1 :', typeof (date + 1));
 console.log('typeof date - 1 :', typeof (date - 1));
 
 
+// type conversions
+
+
+
+
 
 
 
