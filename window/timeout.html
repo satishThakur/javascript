@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <h3 id="time"></h3>
+    <button id="stop">Stop</button>
+    <button id="clear">Clear</button>
+    <button id="start">Start</button>
+
+    <script>
+        var init = 0;
+        var timerId = null;
+        var timeElement = document.getElementById('time');
+        var buttonElement = document.getElementById('stop');
+        var startButton = document.getElementById('start');
+        var clearButton = document.getElementById('clear');
+
+
+        startButton.addEventListener('click', function(){
+            if(timerId){
+                clearInterval(timerId);
+            }
+
+            timerId = setInterval(function(){
+                timeElement.innerHTML = ++init + ' Seconds';
+            },1000);
+        });
+
+        clearButton.addEventListener('click', function(){
+           init = 0;
+            timeElement.innerHTML = init + ' Seconds';
+        });
+
+        buttonElement.addEventListener('click', function(){
+           if(timerId){
+               clearTimeout(timerId);
+           } else{
+               console.log('timer was never started!!!');
+           }
+        });
+
+    </script>
+
+</body>
+</html>

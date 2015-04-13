@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="invokerUtil.js"></script>
+</head>
+<body>
+
+
+    <h3 id="timer"></h3>
+
+
+    <script>
+        var timerElement = document.getElementById('timer');
+        var init = 0;
+
+        invoke(function(){
+            timerElement.innerHTML = ++init + ' Seconds';
+        },5000, 1000, 60000);
+    </script>
+
+
+
+
+</body>
+</html>
